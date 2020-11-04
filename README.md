@@ -1,6 +1,5 @@
 ### Installation
-- Download the .ko file in the Releases folder.
-( https://github.com/icelaglace/MiSTer_WiFi_EW-7811UNv2/blob/main/releases/8188eu.ko )
+- Download the .ko file in the Releases folder : [LINK](https://github.com/icelaglace/MiSTer_WiFi_EW-7811UNv2/blob/main/releases/8188eu.ko)
 - Connect to the MiSTer via SSH/FTP using either Serial Console or Ethernet or simply plug the SD Card in your computer.
 - Transfer the .ko file to ```/lib/modules/4.19.0-socfpga-r1/```
 - Use a keyboard and press F9 or connect to SSH and type : 
@@ -53,3 +52,6 @@ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- clean && make ARCH=arm CROSS_CO
 ### Troubleshoot
 - If you don't have the .bin ```/lib/firmware/rtlwifi``` called ```rtl8188eufw.bin```,go to https://github.com/wkennington/linux-firmware and download : ```rtlwifi/rtl8188eufw.bin```
 - Transfer the .bin file to ```/lib/firmware/rtlwifi```
+
+Thanks to [this guide](https://github.com/MiSTer-devel/Main_MiSTer/wiki/MISTER-CUSTOM-WIFI-DRIVER-COMPILATION-GUIDE) for the instructions :)
+
