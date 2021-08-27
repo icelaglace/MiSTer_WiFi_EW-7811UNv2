@@ -41,7 +41,6 @@ SwLedOn_8188EU(
 	PLED_USB		pLed
 )
 {
-	//u8	LedCfg;
 	u8	LedCfg, gpio_mode;
 	u32 gpio_value;
 	/* HAL_DATA_TYPE	*pHalData = GET_HAL_DATA(padapter); */
@@ -87,7 +86,6 @@ SwLedOff_8188EU(
 	PLED_USB		pLed
 )
 {
-	//u8	LedCfg;
 	u8	LedCfg, gpio_mode;
 	u32 gpio_value;
 	HAL_DATA_TYPE	*pHalData = GET_HAL_DATA(padapter);
@@ -97,6 +95,7 @@ SwLedOff_8188EU(
 
 
 	LedCfg = rtw_read8(padapter, REG_LEDCFG2);/* 0x4E */
+
 	gpio_mode = rtw_read8(padapter, 0x40);
 	gpio_value = rtw_read32(padapter, 0x44);
 #if 0

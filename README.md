@@ -1,7 +1,7 @@
 ### Installation
 - Download the .ko file in the Releases folder : [LINK](https://github.com/icelaglace/MiSTer_WiFi_EW-7811UNv2/blob/main/releases/8188eu.ko)
 - Connect to the MiSTer via SSH/FTP using either Serial Console or Ethernet or simply plug the SD Card in your computer.
-- Transfer the .ko file to ```/lib/modules/4.19.0-socfpga-r1/```
+- Transfer the .ko file to ```/lib/modules/(YOUR KERNEL VERSION)/```
 - Use a keyboard and press F9 or connect to SSH and type : 
 ```
 depmod -a
@@ -22,7 +22,7 @@ On Debian / Ubuntu, I used WSL Ubuntu on my end :
 - Delete ```.git``` folder inside the Linux-Kernel_MiSTer & MiSTer_WiFi_EW-7811UNv2 folders (Recommended by Sigurd Bøe)
 - Go to the Linux MiSTer Kernel folder and type : 
 ```
-make ARCH=arm mrproper && make ARCH=arm MiSTer_defconfig && make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- EXTRAVERSION=-socfpga-r1 modules_prepare
+make ARCH=arm mrproper && make ARCH=arm MiSTer_defconfig && make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- EXTRAVERSION=-MiSTer modules_prepare
 ```
 - Once it's done, go to MiSTer_WiFi_EW-7811UNv2 folder and type : 
 ```
@@ -30,21 +30,19 @@ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- clean && make ARCH=arm CROSS_CO
 ```
 *KSRC is the path of the Linux kernel you just compiled, change accordingly if you didn't follow the exact instructions*
 
-### Compilation (copy and paste) for a fresh install of WSL2 Ubuntu on Windows 10
+### Compilation (copy and paste) for Debian-based distributions
 ```
 apt-get install gcc-arm-linux-gnueabihf build-essential
 apt-get install bison
 apt-get install flex
 apt-get install libssl-dev
-mkdir build
-cd build
+mkdir build && cd build
 git clone https://github.com/MiSTer-devel/Linux-Kernel_MiSTer
 git clone https://github.com/icelaglace/MiSTer_WiFi_EW-7811UNv2
 cd Linux-Kernel_MiSTer
 rm -rf .git
-make ARCH=arm mrproper && make ARCH=arm MiSTer_defconfig && make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- EXTRAVERSION=-socfpga-r1 modules_prepare
-cd ..
-cd MiSTer_WiFi_EW-7811UNv2
+make ARCH=arm mrproper && make ARCH=arm MiSTer_defconfig && make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- EXTRAVERSION=-MiSTer modules_prepare
+cd ../MiSTer_WiFi_EW-7811UNv2
 rm -rf .git
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- clean && make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- KSRC=../Linux-Kernel_MiSTer modules
 ```
