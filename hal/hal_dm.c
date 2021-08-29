@@ -77,11 +77,6 @@ void rtw_hal_update_iqk_fw_offload_cap(_adapter *adapter)
 		phydm_fwoffload_ability_clear(p_dm_odm, PHYDM_RF_IQK_OFFLOAD);
 
 	RTW_INFO("IQK FW offload:%s\n", hal->RegIQKFWOffload ? "enable" : "disable");
-
-	if (rtw_mi_check_status(adapter, MI_LINKED)) {
-		LPS_Leave(adapter, "SWITCH_IQK_OFFLOAD");
-		halrf_iqk_trigger(p_dm_odm, _FALSE);
-	}
 }
 
 #if ((RTL8822B_SUPPORT == 1) || (RTL8821C_SUPPORT == 1) || (RTL8814B_SUPPORT == 1) || (RTL8822C_SUPPORT == 1))
