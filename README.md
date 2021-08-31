@@ -1,3 +1,8 @@
+You now don't need this driver for the MiSTer FPGA!
+It has been included inside the Linux Kernel since 5.14.
+
+Thanks to Alexey for this!
+
 ### Installation
 - Download the .ko file in the Releases folder : [LINK](https://github.com/icelaglace/MiSTer_WiFi_EW-7811UNv2/blob/main/releases/8188eu.ko)
 - Connect to the MiSTer via SSH/FTP using either Serial Console or Ethernet or simply plug the SD Card in your computer.
